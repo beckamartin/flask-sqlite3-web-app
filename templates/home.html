@@ -1,0 +1,78 @@
+ {% extends "base.html" %}
+
+ {% block content %}
+
+<div class="container">
+    <h1 class="text-center mt-2 mb-4">Flask Web App</h1>
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-md-7">
+            <p class="lead">
+                "We're no strangers to love,
+                You know the rules and so do I (do I).
+                A full commitment's what I'm thinking of
+                You wouldn't get this from any other guy.
+                I just wanna tell you how I'm feeling.
+                Gotta make you understand.
+                Never gonna give you up,
+                Never gonna let you down,
+                Never gonna run around and desert you,
+                Never gonna make you cry,
+                Never gonna say goodbye,
+                Never gonna tell a lie and hurt you."
+            </p>
+        </div>
+        <div class="d-none d-md-block col-5 text-center">
+            <img src="static/people.jpg" style="height: 320px; border-radius: 4px;">
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5 ">
+        
+        <div class="col ">
+            <div class=" d-flex align-items-center justify-content-center" ><h4>ADD COMMENT</h4></div>
+            
+            <div class="d-flex align-items-center justify-content-center">
+
+                <form action="/" method="post">
+                <div class="mb-2">
+                    <label>Title</label><br>
+                    <input type="text" name="title" placeholder="Gotham in danger">
+                </div>
+                
+                <div class="mb-2">
+                    <label>Name</label><br>
+                    <input type="text" name="full_name" placeholder="Bruce Wayne">
+                </div>
+                
+                <div class="mb-2">
+                    <label>Comment</label><br>
+                    <input type="text" name="text_comment" placeholder="Gothem needs me!">
+                </div>
+
+                <div class="d-flex align-items-center justify-content-center">
+                    <input type="submit" value="Submit">
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col d-flex align-items-center justify-content-center">
+            <a href="/api/" type="button" class="btn btn-outline-primary">JSON ALL</a>
+        </div>
+    </div>
+
+    {% for comment in comments %}
+    <div class="border-bottom row" style="margin-bottom: 16px; padding-bottom: 8px;">
+        <div class="col-9">        
+            <h4 style="color: rgb(120,120,120); margin-bottom: 4px">{{comment["title"]}}</h4>
+            <div><h5>{{comment["full_name"]}}</h5></div>
+            <div>{{comment["text_comment"]}}</div>  
+        </div>
+        
+        <div class="col-3 d-flex align-items-center justify-content-center">
+            <a href="/api/{{comment["id"]}}" type="button" class="btn btn-outline-primary">JSON</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
