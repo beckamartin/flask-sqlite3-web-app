@@ -1,5 +1,5 @@
-# Flask Web App
+# Web App Test Project
 
-Web application project in Python and Flask.
+Web application project in Python using Flask and SQLite3.
 
-The app runs on this address [https://flask-web-app-81el.onrender.com/](https://flask-web-app-81el.onrender.com/) for now.
+The app runs on this server [http://192.46.236.126/](http://192.46.236.126/) for now.

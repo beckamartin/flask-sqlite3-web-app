@@ -1,9 +1,10 @@
 from flask import Flask, render_template, jsonify, request
-from database import load_all_from_db, load_three_from_db, load_id_from_db, add_comment_to_db
+from database import setup_db, load_all_from_db, load_three_from_db, load_id_from_db, add_comment_to_db
 
 
 
 app = Flask(__name__)
+db = setup_db()
 
 
 @app.route("/", methods=["GET", "POST"])
